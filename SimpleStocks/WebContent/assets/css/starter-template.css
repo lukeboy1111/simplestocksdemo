@@ -1,0 +1,65 @@
+body {
+  padding-top: 30px;
+}
+
+.error {
+	color: red;
+}
+
+.right {
+	float: right;
+}
+
+div.starter-template {
+  padding: 5px 5px;
+  text-align: left;
+  overflow-x:auto;
+}
+
+iframe:focus { 
+    outline: none;
+}
+
+iframe[seamless] { 
+    display: block;
+}
+iframe {
+	min-width: 800px;
+	border: 1px solid grey;
+}
+
+.tbl {
+	max-width: 60%;
+}
+
+div.input {
+	display: none;
+}
+
+div#resources_container {
+	width: 980px;
+}
+
+div.status {
+	border: 1px solid grey;
+	margin: 5px;
+}
+
+.hidden {
+	display: none;
+}
+
+.shown {
+	display: block;
+}
+
+.authenticate {
+	width: 50%;
+	height: auto;
+	padding: 10px;
+	position: absolute;
+	left: 200px;
+	top: 200px;	
+	border: 1px solid green;
+	background: #ccc;
+}
