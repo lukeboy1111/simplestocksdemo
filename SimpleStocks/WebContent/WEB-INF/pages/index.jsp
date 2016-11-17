@@ -71,6 +71,13 @@
   	&nbsp;<label for="price">Price:</label>&nbsp;<input name="price" value="100.0" size="6" maxsize="8" />
   	&nbsp;<button type="submit">Add Trade</button>
   </form>
+  <br />
+  <p>
+  <strong>Volume Weighted Stock Price</strong> = <fmt:formatNumber value="${weightedPrice}" type="currency"/>
+  </p>
+  <p>
+  <strong>All Share Stock Price</strong> = <fmt:formatNumber value="${allSharePrice}" type="currency"/>
+  </p>
   <h2> Current Trades </h2>
   <table class="table">
    <tr>
@@ -92,9 +99,7 @@
   </c:forEach>
   </table>
   <br />
-  <p>
-  <strong>Volume Weighted Stock Price</strong> = <fmt:formatNumber value="${weightedPrice}" type="currency"/>
-  </p>
+  
   <h3> Dividend Yields </h3>
   <ul>
   	<li> Tea: <fmt:formatNumber value="${dividendYieldForTea }" type="currency"/>&nbsp;(${currentTeaPrice }p)</li>

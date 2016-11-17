@@ -38,4 +38,6 @@ public interface IStockService {
 	public abstract ArrayList<StockSymbol> getMyCollection();
 
 	public abstract void setLastTradePrice(HttpSession session);
+
+	public abstract Double getStockShareIndex() throws CannotCalculateException;
 }

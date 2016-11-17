@@ -16,6 +16,7 @@ import com.lukecampbell.simplestocks.bo.StockSymbol;
 import com.lukecampbell.simplestocks.bo.StockTradeContainer;
 import com.lukecampbell.simplestocks.enums.BuyOrSell.BuySellEnum;
 import com.lukecampbell.simplestocks.enums.StockType.StockTypeEnum;
+import com.lukecampbell.simplestocks.exceptions.CannotCalculateException;
 import com.lukecampbell.simplestocks.service.ServiceLocator;
 import com.lukecampbell.simplestocks.service.iface.IStockService;
 import com.lukecampbell.simplestocks.support.StockConstants;
@@ -122,6 +123,18 @@ public class StockServlet extends HttpServlet {
 		}
 
 		request.setAttribute("weightedPrice", weightedPrice);
+
+		Double allSharePrice = new Double(0);
+
+		try {
+			allSharePrice = stockService.getStockShareIndex();
+			request.setAttribute("allShareValid", 1);
+		}
+		catch (CannotCalculateException e) {
+			request.setAttribute("allShareValid", 0);
+		}
+
+		request.setAttribute("allSharePrice", allSharePrice);
 
 	}
 

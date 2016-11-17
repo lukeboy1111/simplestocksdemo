@@ -160,4 +160,9 @@ public class StockService implements IStockService {
 		session.setAttribute(key, lastPriceTraded);
 	}
 
+	@Override
+	public Double getStockShareIndex() throws CannotCalculateException {
+		return myCollection.getStockShareIndex(trades);
+	}
+
 }
