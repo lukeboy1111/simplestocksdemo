@@ -1,7 +1,7 @@
 package com.lukecampbell.simplestocks.service;
 
 import com.lukecampbell.simplestocks.service.iface.IStockService;
-import com.lukecampbell.simplestocks.service.iface.impl.StockService;
+import com.lukecampbell.simplestocks.service.impl.StockService;
 
 public class ServiceLocator {
 
