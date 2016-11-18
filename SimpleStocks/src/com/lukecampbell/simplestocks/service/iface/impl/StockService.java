@@ -51,10 +51,8 @@ public class StockService implements IStockService {
 	@Override
 	public double getDividendYield(StockSymbol s, double marketPrice) throws IllegalArgumentException {
 		if (s.isType(StockTypeEnum.COMMON)) {
-			LOGGER.warning("COMMON Yield");
 			return s.getCommonDividendYieldForMarketPrice(marketPrice);
 		} else if (s.isType(StockTypeEnum.PREFERRED)) {
-			LOGGER.warning("PREFERRED Yield");
 			return s.getPreferredDividendYieldForMarketPrice(marketPrice);
 		} else {
 			throw new IllegalArgumentException("Stock does not have type set. Cannot calculate");

@@ -41,7 +41,7 @@ public class StockType {
 	}
 
 	/**
-	 * The Enum ApiRequestStatusEnum.
+	 * The Enum StockTypeEnum.
 	 */
 	public enum StockTypeEnum {
 		
@@ -56,12 +56,7 @@ public class StockType {
 		/** The value. */
 		private final int value;
 
-		/**
-		 * Instantiates a new api request status enum.
-		 *
-		 * @param newValue
-		 *            the new value
-		 */
+		
 		StockTypeEnum(final Integer newValue) {
 			value = newValue;
 		}

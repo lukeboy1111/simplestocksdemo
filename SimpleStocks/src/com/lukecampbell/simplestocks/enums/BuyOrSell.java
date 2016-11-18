@@ -41,27 +41,21 @@ public class BuyOrSell {
 	}
 
 	/**
-	 * The Enum ApiRequestStatusEnum.
+	 * The Enum BuySellEnum.
 	 */
 	public enum BuySellEnum {
 		
-		/** Common Stock. */
+		/** Unset. */
 		UNSET(StockConstants.STOCK_UNSET),
-		/** Common Stock. */
+		/** buy. */
 		BUY(StockConstants.STOCK_BUY),
 
-		/** Preferred Stock. */
+		/** sell. */
 		SELL(StockConstants.STOCK_SELL);
 
 		/** The value. */
 		private final int value;
 
-		/**
-		 * Instantiates a new api request status enum.
-		 *
-		 * @param newValue
-		 *            the new value
-		 */
 		BuySellEnum(final Integer newValue) {
 			value = newValue;
 		}

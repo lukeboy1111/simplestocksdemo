@@ -186,6 +186,8 @@ public class StockServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
+		request.setAttribute("showMessageStatus", 0);
+		request.setAttribute("message", "");
 		initialise();
 		ArrayList<StockTradeContainer> tradesList;
 		tradesList = (ArrayList<StockTradeContainer>) session.getAttribute("tradesList");
@@ -200,18 +202,27 @@ public class StockServlet extends HttpServlet {
 		String price = request.getParameter("price");
 		String buy = request.getParameter("sell");
 		String qty = request.getParameter("qty");
-		Boolean ok = stockService.checkTrade(symbol, price, buy, qty);
 
-		tradesList = stockService.getTradesList();
-		if (ok) {
-			request.setAttribute("showMessageStatus", 1);
-			request.setAttribute("message", "Trade was added");
-			session.setAttribute("tradesList", tradesList);
-			stockService.setLastTradePrice(session);
-		} else {
-			request.setAttribute("showMessageStatus", 1);
-			request.setAttribute("message", "Trade was not added, there was an error in your submission.");
+		Boolean ok = false;
+		try {
+			ok = stockService.checkTrade(symbol, price, buy, qty);
+			if (ok) {
+				request.setAttribute("showMessageStatus", 1);
+				request.setAttribute("message", "Trade was added");
+				session.setAttribute("tradesList", tradesList);
+				stockService.setLastTradePrice(session);
+			} else {
+				request.setAttribute("showMessageStatus", 1);
+				request.setAttribute("message", "Trade was not added, there was an error in your submission.");
+			}
 		}
+		catch (IllegalArgumentException e) {
+			LOGGER.warning("Illegal Exception " + e.getMessage());
+			request.setAttribute("showMessageStatus", 1);
+			request.setAttribute("message", "Trade was not added, there was an error in your submission: " + e.getMessage());
+
+		}
+		tradesList = stockService.getTradesList();
 
 		request.setAttribute("tradesList", tradesList);
 

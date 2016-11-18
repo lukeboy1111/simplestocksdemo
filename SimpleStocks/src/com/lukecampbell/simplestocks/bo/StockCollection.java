@@ -43,12 +43,10 @@ public class StockCollection {
 		for (StockSymbol s : listStocks) {
 			Double parValue = s.getParValue();
 			ArrayList<Double> prices = trades.getTradePricesForStock(s);
-			LOGGER.warning(s.getSymbol() + " : Prices has size " + prices.size());
 			if (!(null == prices) && prices.size() > 0) {
 				Double geoMeanPrice = s.getGeometricMean(prices);
 				Double weighting = parValue / totalValue;
 				Double weightedPrice = (geoMeanPrice * weighting);
-				LOGGER.info(s.getSymbol() + " parValue=" + parValue + " meanPrice=" + geoMeanPrice + " weight=" + weighting + " calc=" + weightedPrice);
 				indexValue += weightedPrice;
 			}
 		}

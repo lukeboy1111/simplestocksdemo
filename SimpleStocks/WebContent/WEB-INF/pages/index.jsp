@@ -38,8 +38,9 @@
   </head>
 
   <body>
+ 
   <c:if test="${showMessageStatus > 0}">
-   <p><c:out value="${showMessage}"/><p>
+   <p><div style="color:red;"><c:out value="${message}"/></div><p>
   </c:if>
   <h2> Portfolio </h2>
   <table class="table">

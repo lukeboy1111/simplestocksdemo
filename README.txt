@@ -20,4 +20,8 @@ ALE	Common	23		60
 GIN	Preferred	8	2%	100	
 JOE	Common	13		250	
 
+To Run
 
+Deploy to your favourite Container such as JBoss and point your browser at :-
+
+http://localhost:8080/SimpleStocks/index.html
