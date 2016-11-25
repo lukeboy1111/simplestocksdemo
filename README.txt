@@ -25,3 +25,7 @@ To Run
 Deploy to your favourite Container such as JBoss and point your browser at :-
 
 http://localhost:8080/SimpleStocks/index.html
+
+Or alternatively, see the "live demo" on :-
+
+http://demo.campbells.im:8080/SimpleStocks/
