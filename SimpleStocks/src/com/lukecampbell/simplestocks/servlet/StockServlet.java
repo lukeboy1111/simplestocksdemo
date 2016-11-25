@@ -63,15 +63,10 @@ public class StockServlet extends HttpServlet {
 		cal.add(Calendar.HOUR, -1);
 		Date rightNowMinusAnHour = cal.getTime();
 
-		stockService.recordTradeWithoutDate(stockTea, 10, BuySellEnum.SELL, 101.5);
-		stockService.recordTrade(stockPop, 1000, BuySellEnum.BUY, popPrice, rightNow);
-		stockService.recordTrade(stockPop, 50, BuySellEnum.SELL, popPrice2, rightNow);
-		stockService.recordTrade(stockAle, 500, BuySellEnum.BUY, alePrice, rightNow);
-		stockService.recordTrade(stockGin, 10, BuySellEnum.BUY, ginPrice, rightNow);
 		stockService.recordTrade(stockGin, 100, BuySellEnum.SELL, ginPriceSell, rightNow);
+		stockService.recordTrade(stockJoe, 1500, BuySellEnum.SELL, joePrice, rightNow);
 		stockService.recordTrade(stockJoe, 10, BuySellEnum.SELL, joePriceLarge, rightNowMinusAnHour);
 		stockService.recordTrade(stockJoe, 150, BuySellEnum.SELL, joePriceLarge, rightNowMinusAnHour);
-		stockService.recordTrade(stockJoe, 1500, BuySellEnum.SELL, joePrice, rightNow);
 
 	}
 
