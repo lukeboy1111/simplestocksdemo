@@ -107,9 +107,13 @@ public class StockService implements IStockService {
 	@Override
 	public Boolean checkTrade(String symbol, String price, String buy, String qty) {
 		Boolean ok = true;
-		if (myCollection.doesntExist(symbol)) {
+		if (null == symbol || symbol.equals("")) {
+			ok = false;
+		} else if (myCollection.doesntExist(symbol)) {
 			ok = false;
 		}
+
+		LOGGER.warning("Ok=" + ok);
 
 		Double thePrice = new Double(0);
 		try {
@@ -127,11 +131,12 @@ public class StockService implements IStockService {
 			ok = false;
 		}
 
-		if (buy.equals(StockConstants.STRING_BUY) || buy.equals(StockConstants.STRING_SELL)) {
+		if (ok && (buy.equals(StockConstants.STRING_BUY) || buy.equals(StockConstants.STRING_SELL))) {
 			ok = true;
 		}
 
 		if (ok) {
+			LOGGER.warning("adding trade");
 			Calendar cal = Calendar.getInstance();
 			Date rightNow = cal.getTime();
 			BuySellEnum tradeType = BuySellEnum.BUY;
@@ -153,9 +158,14 @@ public class StockService implements IStockService {
 
 	@Override
 	public void setLastTradePrice(HttpSession session) {
-		String symbol = lastItemTraded.getSymbol();
-		String key = symbol + "-last";
-		session.setAttribute(key, lastPriceTraded);
+		try {
+			String symbol = lastItemTraded.getSymbol();
+			String key = symbol + "-last";
+			session.setAttribute(key, lastPriceTraded);
+		}
+		catch (NullPointerException e) {
+
+		}
 	}
 
 	@Override
