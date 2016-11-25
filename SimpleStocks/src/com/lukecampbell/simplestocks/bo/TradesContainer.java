@@ -87,7 +87,7 @@ public class TradesContainer {
 		ArrayList<Double> prices = new ArrayList<Double>();
 		for (StockTradeContainer trade : trades) {
 			StockSymbol stock = trade.getStockTraded();
-			if (stock.isActually(s)) {
+			if (!(null == stock) && stock.isActually(s)) {
 				double price = trade.getPriceTraded();
 				prices.add(price);
 
